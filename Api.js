@@ -1,13 +1,10 @@
 
 //variantes
 
-const boton = document.getElementById("boton");
+
 const foto = document.getElementById("foto");
-const Nombre = document.getElementById("Nombre");
-const Correo = document.getElementById("Correo");
-const Edad = document.getElementById("Edad");
-const Direccion = document.getElementById("Direccion");
-const Telefono = document.getElementById("Telefono");
+const Nombre = document.getElementById("nombre");
+
 
 //funciones
 const generarCV = async() => {
@@ -17,18 +14,14 @@ const generarCV = async() => {
     const datos = results[0];
  //datos   
     console.log(datos);
-    foto.src = datos.picture.medium;
+    foto.src = datos.picture.large;
     Nombre.textContent = datos.name.first +" "+datos.name.last;
-    Correo.textContent = datos.email;
-    Edad.textContent = datos.dob.age;
-    Direccion.textContent = datos.location.street.name +" "+datos.location.street.number;
-    Telefono.textContent = datos.phone;
-    
-    
+   
 }
 
-/* boton de generar curriculum*/
-
-boton.addEventListener("click", generarCV);
+// refresco de pagina
 
 document.addEventListener('DOMContentLoaded', generarCV)
+
+
+
